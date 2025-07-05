@@ -26,7 +26,7 @@ const ProfileText = ({ visible, titleId }) => (
       I’m <Link href="https://www.linkedin.com/in/developer-preet-ojha/">Preet Ojha</Link>, a skilled Android and Full-Stack Developer based in Canada. I specialize in crafting efficient mobile and web apps using Kotlin, Java, Android SDK, Jetpack Compose, and RESTful APIs. My portfolio features projects like the GTU Marks Calculator and Covid Application System, available on <Link href="https://play.google.com">Play Store</Link> and <Link href="https://github.com">GitHub</Link>, showcasing my ability to deliver scalable solutions. I hold a B.Tech in Computer Science and recently completed my Postgraduate Diploma in Full Stack Software Development at Lambton College, keeping me aligned with the latest industry trends.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      When I’m not coding, I’m exploring AWS, brainstorming new project ideas, enjoying movies, or engaging with the dev community. Let’s collaborate on something innovative—<Link href="/contact">reach out</Link>!
+      When I’m not coding, I’m exploring AWS, brainstorming new project ideas, enjoying movies, or engaging with the dev community. Let’s collaborate on something innovative !
     </Text>
 </Fragment>
 
@@ -56,7 +56,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                 secondary
                 className={styles.button}
                 data-visible={visible}
-                href="/contact"
+                href="https://preetojha08.github.io/ScanMe_Social_Connectivity-/"
                 icon="send"
               >
                 Catch me on YOUR Favorite SOCIAL Platforms!

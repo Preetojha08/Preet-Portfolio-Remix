@@ -32,10 +32,10 @@ import sliceTextureLarge from '~/assets/slice-app-large.jpg';
 import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
 import sliceTexture from '~/assets/slice-app.jpg';
 import sprTextureLarge from '~/assets/NeuroStack Landing Page.png';
-// import sprTextureLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
+//import sprTextureLarge from '~/assets/NeuroStack Landing Page.png';
 import sprTexturePlaceholder from '~/assets/NeuroStack Landing Page.png';
 // import sprTexturePlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
-import sprTexture from '~/assets/spr-lesson-builder-dark.jpg';
+import sprTexture from '~/assets/NeuroStack Landing Page.png';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -84,7 +84,7 @@ export const Home = () => {
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, details];
+    const sections = [intro, projectOne, projectTwo, projectThree,projectfour,projectfive, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -207,7 +207,7 @@ export const Home = () => {
         title="Student Marks Calculator"
         description="A GTU marks calculator app built for students to quickly compute SPI, CPI, CGPA, and percentage with a clean and easy-to-use interface."
         buttonText="View Application"
-        buttonLink="https://gamestack.hamishw.com"
+        buttonLink="/projects/foodappd"
         model={{
           type: 'phone',
           alt: 'App login screen',
@@ -233,7 +233,7 @@ export const Home = () => {
         title="Covid Soft Test"
         description="A simple and responsive Android app providing real-time COVID-19 updates, safety guidelines, and nearby healthcare info. Built using Java, RESTful APIs, and SQL for reliable performance and accessibility."
         buttonText="View project"
-        buttonLink="/projects/neurostack"
+        buttonLink="/projects/foodappd"
         model={{
           type: 'phone',
           alt: 'Annotating a biomedical image in the Slice app',

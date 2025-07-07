@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <defs>
+    <!-- Horizontal: प्रोजेक्ट -->
+    <symbol id="hindi-project" viewBox="0 0 751 136">
+          <g transform="translate(259.035867, 484.062052)">
+        <path d="M128.578125 -98.625 L156.125 -112.703125 ... Z"/>
+      </g>
+      <g transform="translate(322.421604, 543.719218)">
+        <path d="M-20.09375 -60.140625 L-39.453125 ... Z"/>
+      </g>
+      <g transform="translate(477.217511, 484.062052)">
+        <path d="M61.703125 -169.46875 L77.09375 ... Z"/>
+      </g>
+      <g transform="translate(331.862263, 695.293857)">
+        <path d="M131.9375 -169.46875 L150.828125 ... Z"/>
+      </g>
+      <g transform="translate(299.807288, 906.525662)">
+        <path d="M213.96875 -156.125 L216.375 ... Z"/>
+      </g>
+    </symbol>
+
+    <!-- Vertical: प्रोफाइल -->
+   <symbol id="hindi-profile" viewBox="200 200 700 800">
+      <g transform="translate(259.035867, 484.062052)">
+        <path d="M128.578125 -98.625 L156.125 -112.703125 ... Z"/>
+      </g>
+      <g transform="translate(322.421604, 543.719218)">
+        <path d="M-20.09375 -60.140625 L-39.453125 ... Z"/>
+      </g>
+      <g transform="translate(477.217511, 484.062052)">
+        <path d="M61.703125 -169.46875 L77.09375 ... Z"/>
+      </g>
+      <g transform="translate(331.862263, 695.293857)">
+        <path d="M131.9375 -169.46875 L150.828125 ... Z"/>
+      </g>
+      <g transform="translate(299.807288, 906.525662)">
+        <path d="M213.96875 -156.125 L216.375 ... Z"/>
+      </g>
+</symbol>
+  </defs>
+</svg>

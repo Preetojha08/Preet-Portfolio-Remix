@@ -183,6 +183,8 @@ export const Slice = () => {
               </ProjectSectionText>
 
             </div>
+
+            
           </ProjectSectionContent>
         </ProjectSection>
         <ProjectSection>

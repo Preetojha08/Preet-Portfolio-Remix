@@ -14,6 +14,7 @@ import { Transition } from '~/components/transition';
 import { Fragment, useState } from 'react';
 import { media } from '~/utils/style';
 import katakana from './katakana.svg';
+import hindi from './hindi.svg';
 import styles from './profile.module.css';
 
 const ProfileText = ({ visible, titleId }) => (
@@ -86,7 +87,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   alt="Me smiling like a goofball at the Qwilr office in Sydney"
                 />
                 <svg className={styles.svg} data-visible={visible} viewBox="0 0 136 766">
-                  <use href={`${katakana}#katakana-profile`} />
+                  <use href={`${hindi}#hindi-profile`} />
                 </svg>
               </div>
             </div>

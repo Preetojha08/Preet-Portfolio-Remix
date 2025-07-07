@@ -15,8 +15,11 @@ const baseTokens = {
   fontStack: `Gotham, var(--systemFontStack)`,
   monoFontStack:
     'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
-  japaneseFontStack:
-    'IPA Gothic, ヒラギノ角ゴ Pro W3, Hiragino Kaku Gothic Pro, Hiragino Sans, Osaka, メイリオ, Meiryo, Segoe UI, sans-serif',
+  // japaneseFontStack:
+  //   'IPA Gothic, ヒラギノ角ゴ Pro W3, Hiragino Kaku Gothic Pro, Hiragino Sans, Osaka, メイリオ, Meiryo, Segoe UI, sans-serif',
+  hindiFontStack: 
+    'Tiro Devanagari Hindi Regular,Noto Sans Devanagari, Mukta, Mangal, Aparajita, "Kohinoor Devanagari", "Lohit Devanagari", sans-serif',
+
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightBold: 700,
@@ -106,26 +109,26 @@ const tokensMobileSmall = {
   fontSizeH4: pxToRem(20),
 };
 
-// Tokens that change based on theme
+// Updated tokens that change based on theme to match light red wine sphere color
 const dark = {
-  background: 'oklch(17.76% 0 0)',
-  backgroundLight: 'oklch(21.78% 0 0)',
-  primary: 'oklch(84.42% 0.19 202.24)',
-  accent: 'oklch(84.42% 0.19 202.24)',
-  error: 'oklch(65.91% 0.249 13.76)',
-  text: 'var(--white)',
+  background: 'oklch(15% 0.02 30)',            // dark warm grayish background
+  backgroundLight: 'oklch(22% 0.02 30)',       // slightly lighter warm background
+  primary: 'oklch(45% 0.12 29)',                // deep burgundy red (dark red wine)
+  accent: 'oklch(65% 0.3 29)',                  // medium saturated red wine (matches sphere)
+  error: 'oklch(60% 0.4 15)',                   // warm reddish error color
+  text: 'var(--white)',                          // keep white for contrast
   textTitle: 'var(--text)',
   textBody: 'color-mix(in lab, var(--text) 80%, transparent)',
   textLight: 'color-mix(in lab, var(--text) 60%, transparent)',
 };
 
 const light = {
-  background: 'oklch(96.12% 0 0)',
-  backgroundLight: 'var(--white)',
-  primary: 'var(--black)',
-  accent: 'oklch(84.42% 0.19 202.24)',
-  error: 'oklch(63.17% 0.259 25.41)',
-  text: 'var(--black)',
+  background: 'oklch(95% 0.01 30)',             // soft warm off-white background
+  backgroundLight: 'oklch(98% 0 0)',             // almost pure white
+  primary: 'oklch(30% 0.1 29)',                  // muted dusty burgundy
+  accent: 'oklch(65% 0.3 29)',                   // medium red wine (matches sphere)
+  error: 'oklch(60% 0.4 15)',                    // warm error red
+  text: 'var(--black)',                           // black text for light bg
   textTitle: 'color-mix(in lab, var(--text) 90%, transparent)',
   textBody: 'color-mix(in lab, var(--text) 75%, transparent)',
   textLight: 'color-mix(in lab, var(--text) 55%, transparent)',

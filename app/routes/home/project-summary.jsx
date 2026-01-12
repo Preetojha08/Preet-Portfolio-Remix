@@ -24,6 +24,7 @@ export function ProjectSummary({
   visible: sectionVisible,
   sectionRef,
   index,
+  numberLabel,
   title,
   description,
   stack,
@@ -41,7 +42,7 @@ export function ProjectSummary({
   const titleId = `${id}-title`;
   const isMobile = width <= media.tablet;
   const svgOpacity = theme === 'light' ? 0.7 : 1;
-  const indexText = index < 10 ? `0${index}` : index;
+  const indexText = numberLabel || (index < 10 ? `0${index}` : index);
   const phoneSizes = `(max-width: ${media.tablet}px) 30vw, 20vw`;
   const laptopSizes = `(max-width: ${media.tablet}px) 80vw, 40vw`;
 

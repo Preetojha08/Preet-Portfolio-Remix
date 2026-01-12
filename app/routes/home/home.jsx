@@ -27,6 +27,10 @@ import covidAppTextureLarge from '~/assets/Covid02.png';
 import covidAppTexturePlaceholder from '~/assets/Covid02.png';
 import covidAppTexture from '~/assets/Covid02.png';
 
+import AiResume from '~/assets/AIResume_site.png';
+import SparkClass from '~/assets/sparkshinesite.png';
+import celpiptest from '~/assets/celpiptest_site.png';
+
 
 import sliceTextureLarge from '~/assets/slice-app-large.jpg';
 import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
@@ -227,7 +231,7 @@ export const Home = () => {
       description:
         'An AI-powered web application that analyzes resumes, extracts content, and provides ATS-style job fit insights and recommendations.',
       buttonText: 'View project',
-      buttonLink: '/projects/ai-resume-analyzer',
+      buttonLink: 'https://github.com/Preetojha08/Java_AIResume_Analyzer',
       stack: [
         'Java',
         'Spring Boot',
@@ -243,8 +247,8 @@ export const Home = () => {
         alt: 'AI Resume Analyzer web application',
         textures: [
           {
-            srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-            placeholder: sprTexturePlaceholder,
+            srcSet: `${AiResume} 1280w, ${AiResume} 2560w`,
+            placeholder: AiResume,
           },
         ],
       },
@@ -259,7 +263,7 @@ export const Home = () => {
       description:
         'A GTU marks calculator app built for students to quickly compute SPI, CPI, CGPA, and percentage with a clean and easy-to-use interface.',
       buttonText: 'View Application',
-      buttonLink: '/projects/foodappd',
+      buttonLink: 'https://play.google.com/store/apps/details?id=com.creatures.markscalculator',
       stack: ['Java', 'Android', 'SQLite', 'Material UI'],
       model: {
         type: 'phone',
@@ -285,7 +289,7 @@ export const Home = () => {
       description:
         'A simple and responsive Android app providing real-time COVID-19 updates, safety guidelines, and nearby healthcare info. Built using Java, RESTful APIs, and SQL for reliable performance and accessibility.',
       buttonText: 'View project',
-      buttonLink: '/projects/foodappd',
+      buttonLink: 'https://github.com/Preetojha08/COVID-19-Testing-App',
       stack: ['Java', 'REST APIs', 'SQL', 'Android', 'Material UI'],
       model: {
         type: 'phone',
@@ -311,15 +315,15 @@ export const Home = () => {
       description:
         'A modern, responsive website for an education institute featuring clean layout, branding, and clear call-to-actions.',
       buttonText: 'View project',
-      buttonLink: '/projects/spark-and-shine',
+      buttonLink: 'https://sparkshineclasses.netlify.app/',
       stack: ['React', 'Vite', 'Tailwind CSS', 'Responsive UI'],
       model: {
         type: 'laptop',
         alt: 'Spark & Shine tuition classes website',
         textures: [
           {
-            srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-            placeholder: sprTexturePlaceholder,
+            srcSet: `${SparkClass} 1280w, ${SparkClass} 2560w`,
+            placeholder: SparkClass,
           },
         ],
       },
@@ -333,15 +337,15 @@ export const Home = () => {
       description:
         'A focused practice platform for CELPIP Writing tasks, offering structured prompts and a guided writing experience.',
       buttonText: 'View project',
-      buttonLink: '/projects/celpip-writing-studio',
+      buttonLink: 'https://github.com/Preetojha08/Celpip_Writing_Practice_Gemini',
       stack: ['React', 'JavaScript', 'Writing Evaluation Logic', 'UI/UX'],
       model: {
         type: 'laptop',
         alt: 'CELPIP writing practice studio',
         textures: [
           {
-            srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-            placeholder: sprTexturePlaceholder,
+            srcSet: `${celpiptest} 1280w, ${celpiptest} 2560w`,
+            placeholder: celpiptest,
           },
         ],
       },
@@ -356,6 +360,21 @@ export const Home = () => {
 
   const filteredProjects =
     category === 'all' ? projects : projects.filter(project => project.category === category);
+
+  const projectCodes = projects.reduce((acc, project) => {
+    const counts = acc.counts;
+    let prefix = '';
+
+    if (project.category === 'web') prefix = 'WA';
+    if (project.category === 'mobile') prefix = 'MA';
+
+    if (prefix) {
+      counts[prefix] = (counts[prefix] || 0) + 1;
+      acc.codes[project.id] = `${prefix}${String(counts[prefix]).padStart(3, '0')}`;
+    }
+
+    return acc;
+  }, { counts: {}, codes: {} }).codes;
 
   return (
     <div className={styles.home}>
@@ -392,6 +411,7 @@ export const Home = () => {
             sectionRef={project.ref}
             visible={visibleSections.includes(project.ref.current)}
             index={project.index}
+            numberLabel={projectCodes[project.id]}
             title={project.title}
             description={project.description}
             buttonText={project.buttonText}

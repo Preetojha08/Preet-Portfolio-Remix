@@ -119,6 +119,132 @@ export const Home = () => {
     };
   }, [visibleSections]);
 
+  const projects = [
+    {
+      id: 'project-1',
+      ref: projectOne,
+      index: 1,
+      title: 'Neurostack Landing Page',
+      description:
+        'Created a React-based landing page for NeuroStack with team info, project highlights, and contact section.',
+      buttonText: 'View project',
+      buttonLink: '/projects/neurostack',
+      stack: ['React', 'Remix', 'Three.js', 'Framer Motion', 'Vite'],
+      model: {
+        type: 'laptop',
+        alt: 'Smart Sparrow lesson builder',
+        textures: [
+          {
+            srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
+            placeholder: sprTexturePlaceholder,
+          },
+        ],
+      },
+    },
+    {
+      id: 'project-2',
+      ref: projectTwo,
+      alternate: true,
+      index: 2,
+      title: 'Bank Application ',
+      description:
+        'A modern banking app clone built with Java, Kotlin, and Jetpack Compose, featuring improved UI/UX and added functionalities.',
+      buttonText: 'View Application',
+      buttonLink: '/projects/bankapp',
+      stack: ['Java', 'Kotlin', 'Jetpack Compose', 'Firebase', 'Android Studio'],
+      model: {
+        type: 'phone',
+        alt: 'App login screen',
+        textures: [
+          {
+            srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
+            placeholder: gamestackTexturePlaceholder,
+          },
+          {
+            srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
+            placeholder: gamestackTexture2Placeholder,
+          },
+        ],
+      },
+    },
+    {
+      id: 'project-3',
+      ref: projectThree,
+      index: 3,
+      title: 'Food Catering',
+      description:
+        'An online food catering app built with Java and PHP, featuring a sleek UI, user login, and admin panel for managing orders and menus.',
+      buttonText: 'View project',
+      buttonLink: '/projects/foodapp',
+      stack: ['Java', 'PHP', 'MySQL', 'REST APIs', 'Responsive UI'],
+      model: {
+        type: 'phone',
+        alt: 'Annotating a biomedical image in the Slice app',
+        textures: [
+          {
+            srcSet: `${foodAppTexture} 375w, ${foodAppTextureLarge} 750w`,
+            placeholder: foodAppTexturePlaceholder,
+          },
+          {
+            srcSet: `${foodAppTexture2} 800w, ${foodAppTexture2Large} 1920w`,
+            placeholder: foodAppTexture2Placeholder,
+          },
+        ],
+      },
+    },
+    {
+      id: 'project-4',
+      ref: projectfour,
+      alternate: true,
+      index: 4,
+      title: 'Student Marks Calculator',
+      description:
+        'A GTU marks calculator app built for students to quickly compute SPI, CPI, CGPA, and percentage with a clean and easy-to-use interface.',
+      buttonText: 'View Application',
+      buttonLink: '/projects/foodappd',
+      stack: ['Java', 'Android', 'SQLite', 'Material UI'],
+      model: {
+        type: 'phone',
+        alt: 'App login screen',
+        textures: [
+          {
+            srcSet: `${markscalTexture2} 375w, ${markscalTexture2Large} 750w`,
+            placeholder: markscalTexture2Placeholder,
+          },
+          {
+            srcSet: `${markscalTexture} 375w, ${markscalTextureLarge} 750w`,
+            placeholder: markscalTexturePlaceholder,
+          },
+        ],
+      },
+    },
+    {
+      id: 'project-5',
+      ref: projectfive,
+      index: 5,
+      title: 'Covid Soft Test',
+      description:
+        'A simple and responsive Android app providing real-time COVID-19 updates, safety guidelines, and nearby healthcare info. Built using Java, RESTful APIs, and SQL for reliable performance and accessibility.',
+      buttonText: 'View project',
+      buttonLink: '/projects/foodappd',
+      stack: ['Java', 'REST APIs', 'SQL', 'Android', 'Material UI'],
+      model: {
+        type: 'phone',
+        alt: 'Annotating a biomedical image in the Slice app',
+        textures: [
+          {
+            srcSet: `${covidAppTexture} 800w, ${covidAppTextureLarge} 1920w`,
+            placeholder: covidAppTexturePlaceholder,
+          },
+          {
+            srcSet: `${covidAppTexture2} 375w, ${covidAppTexture2Large} 750w`,
+            placeholder: covidAppTexture2Placeholder,
+          },
+        ],
+      },
+    },
+  ];
+
   return (
     <div className={styles.home}>
       <Intro
@@ -126,131 +252,22 @@ export const Home = () => {
         sectionRef={intro}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
-      <ProjectSummary
-        id="project-1"
-        sectionRef={projectOne}
-        visible={visibleSections.includes(projectOne.current)}
-        index={1}
-        title="Neurostack Landing Page"
-        description="Created a React-based landing page for NeuroStack with team info, project highlights, and contact section."
-        buttonText="View project"
-        buttonLink="/projects/neurostack"
-        model={{
-          type: 'laptop',
-          alt: 'Smart Sparrow lesson builder',
-          textures: [
-            {
-              srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-              placeholder: sprTexturePlaceholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-2"
-        alternate
-        sectionRef={projectTwo}
-        visible={visibleSections.includes(projectTwo.current)}
-        index={2}
-        title="Bank Application "
-        description="A modern banking app clone built with Java, Kotlin, and Jetpack Compose, featuring improved UI/UX and added functionalities."
-        buttonText="View Application"
-        buttonLink="/projects/bankapp"
-        model={{
-          type: 'phone',
-          alt: 'App login screen',
-          textures: [
-            {
-              srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
-              placeholder: gamestackTexturePlaceholder,
-            },
-            {
-              srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
-              placeholder: gamestackTexture2Placeholder,
-            },
-            
-          ],
-        }}
-      />
-
-      <ProjectSummary
-        id="project-3"
-        sectionRef={projectThree}
-        visible={visibleSections.includes(projectThree.current)}
-        index={3}
-        title="Food Catering"
-        description="An online food catering app built with Java and PHP, featuring a sleek UI, user login, and admin panel for managing orders and menus."
-        buttonText="View project"
-        buttonLink="/projects/foodapp"
-        model={{
-          type: 'phone',
-          alt: 'Annotating a biomedical image in the Slice app',
-          textures: [
-            {
-              srcSet: `${foodAppTexture} 375w, ${foodAppTextureLarge} 750w`,
-              placeholder: foodAppTexturePlaceholder,
-            },
-            {
-              srcSet: `${foodAppTexture2} 800w, ${foodAppTexture2Large} 1920w`,
-              placeholder: foodAppTexture2Placeholder,
-            },
-          ],
-        }}
-      />
-
-      <ProjectSummary
-        id="project-4"
-        alternate
-        sectionRef={projectfour}
-        visible={visibleSections.includes(projectTwo.current)}
-        index={4}
-        title="Student Marks Calculator"
-        description="A GTU marks calculator app built for students to quickly compute SPI, CPI, CGPA, and percentage with a clean and easy-to-use interface."
-        buttonText="View Application"
-        buttonLink="/projects/foodappd"
-        model={{
-          type: 'phone',
-          alt: 'App login screen',
-          textures: [
-            {
-              srcSet: `${markscalTexture2} 375w, ${markscalTexture2Large} 750w`,
-              placeholder: markscalTexture2Placeholder,
-            },
-            {
-              srcSet: `${markscalTexture} 375w, ${markscalTextureLarge} 750w`,
-              placeholder: markscalTexturePlaceholder,
-            },
-            
-          ],
-        }}
-      />
-      
-      <ProjectSummary
-        id="project-5"
-        sectionRef={projectfive}
-        visible={visibleSections.includes(projectThree.current)}
-        index={5}
-        title="Covid Soft Test"
-        description="A simple and responsive Android app providing real-time COVID-19 updates, safety guidelines, and nearby healthcare info. Built using Java, RESTful APIs, and SQL for reliable performance and accessibility."
-        buttonText="View project"
-        buttonLink="/projects/foodappd"
-        model={{
-          type: 'phone',
-          alt: 'Annotating a biomedical image in the Slice app',
-          textures: [
-            {
-              srcSet: `${covidAppTexture} 800w, ${covidAppTextureLarge} 1920w`,
-              placeholder: covidAppTexturePlaceholder,
-            },
-            {
-              srcSet: `${covidAppTexture2} 375w, ${covidAppTexture2Large} 750w`,
-              placeholder: covidAppTexture2Placeholder,
-
-            },
-          ],
-        }}
-      />
-
+      {projects.map(project => (
+        <ProjectSummary
+          key={project.id}
+          id={project.id}
+          alternate={project.alternate}
+          sectionRef={project.ref}
+          visible={visibleSections.includes(project.ref.current)}
+          index={project.index}
+          title={project.title}
+          description={project.description}
+          buttonText={project.buttonText}
+          buttonLink={project.buttonLink}
+          model={project.model}
+          stack={project.stack}
+        />
+      ))}
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}

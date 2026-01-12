@@ -26,6 +26,7 @@ export function ProjectSummary({
   index,
   title,
   description,
+  stack,
   model,
   buttonText,
   buttonLink,
@@ -65,6 +66,10 @@ export function ProjectSummary({
   }
 
   function renderDetails(visible) {
+    const maxStackItems = 6;
+    const stackItems = stack ? stack.slice(0, maxStackItems) : [];
+    const extraCount = stack ? stack.length - stackItems.length : 0;
+
     return (
       <div className={styles.details}>
         <div aria-hidden className={styles.index}>
@@ -90,6 +95,24 @@ export function ProjectSummary({
         <Text className={styles.description} data-visible={visible} as="p">
           {description}
         </Text>
+        {!!stackItems.length && (
+          <div className={styles.stack} data-visible={visible}>
+            {stackItems.map(item => (
+              <span key={item} className={styles.stackPill}>
+                {item}
+              </span>
+            ))}
+            {extraCount > 0 && (
+              <span
+                className={styles.stackPill}
+                title={`${extraCount} more`}
+                aria-label={`${extraCount} more`}
+              >
+                +{extraCount}
+              </span>
+            )}
+          </div>
+        )}
         <div className={styles.button} data-visible={visible}>
           <Button iconHoverShift href={buttonLink} iconEnd="arrow-right">
             {buttonText}

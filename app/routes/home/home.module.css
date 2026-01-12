@@ -1,3 +1,64 @@
 .home {
   overflow-x: hidden;
 }
+
+.projectsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spaceM);
+  padding: 24px 20px 8px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.segmentedControl {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--textBody) 18%, transparent);
+  background: color-mix(in srgb, var(--textBody) 6%, transparent);
+  pointer-events: auto;
+}
+
+.segmentedButton {
+  background: transparent;
+  border: 0;
+  color: var(--textBody);
+  font: inherit;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: var(--fontSizeBodyXS);
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.segmentedButton[data-active='true'] {
+  opacity: 1;
+  color: var(--textTitle);
+  background: color-mix(in srgb, var(--textTitle) 10%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--textTitle) 10%, transparent);
+}
+
+.segmentedButton:focus-visible {
+  outline: 2px solid var(--textTitle);
+  outline-offset: 2px;
+}
+
+@media (--mediaTablet) {
+  .projectsHeader {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.emptyState {
+  text-align: center;
+  opacity: 0.7;
+  padding: 32px 20px;
+}

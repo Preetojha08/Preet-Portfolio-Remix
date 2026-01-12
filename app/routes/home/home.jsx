@@ -75,16 +75,31 @@ export const meta = () => {
 export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
+  const [category, setCategory] = useState('all');
   const intro = useRef();
   const projectOne = useRef();
   const projectTwo = useRef();
   const projectThree = useRef();
   const projectfour = useRef();
   const projectfive = useRef();
+  const projectSix = useRef();
+  const projectSeven = useRef();
+  const projectEight = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree,projectfour,projectfive, details];
+    const sections = [
+      intro,
+      projectOne,
+      projectTwo,
+      projectThree,
+      projectfour,
+      projectfive,
+      projectSix,
+      projectSeven,
+      projectEight,
+      details,
+    ].filter(section => section?.current);
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -92,8 +107,9 @@ export const Home = () => {
           if (entry.isIntersecting) {
             const section = entry.target;
             observer.unobserve(section);
-            if (visibleSections.includes(section)) return;
-            setVisibleSections(prevSections => [...prevSections, section]);
+            setVisibleSections(prevSections =>
+              prevSections.includes(section) ? prevSections : [...prevSections, section]
+            );
           }
         });
       },
@@ -111,19 +127,28 @@ export const Home = () => {
       sectionObserver.observe(section.current);
     });
 
-    indicatorObserver.observe(intro.current);
+    if (intro.current) {
+      indicatorObserver.observe(intro.current);
+    }
+
+
 
     return () => {
       sectionObserver.disconnect();
       indicatorObserver.disconnect();
     };
-  }, [visibleSections]);
+  }, [category]);
+
+  useEffect(() => {
+    setVisibleSections([]);
+  }, [category]);
 
   const projects = [
     {
       id: 'project-1',
       ref: projectOne,
       index: 1,
+      category: 'web',
       title: 'Neurostack Landing Page',
       description:
         'Created a React-based landing page for NeuroStack with team info, project highlights, and contact section.',
@@ -132,7 +157,6 @@ export const Home = () => {
       stack: ['React', 'Remix', 'Three.js', 'Framer Motion', 'Vite'],
       model: {
         type: 'laptop',
-        alt: 'Smart Sparrow lesson builder',
         textures: [
           {
             srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
@@ -146,6 +170,7 @@ export const Home = () => {
       ref: projectTwo,
       alternate: true,
       index: 2,
+      category: 'mobile',
       title: 'Bank Application ',
       description:
         'A modern banking app clone built with Java, Kotlin, and Jetpack Compose, featuring improved UI/UX and added functionalities.',
@@ -171,6 +196,7 @@ export const Home = () => {
       id: 'project-3',
       ref: projectThree,
       index: 3,
+      category: 'web',
       title: 'Food Catering',
       description:
         'An online food catering app built with Java and PHP, featuring a sleek UI, user login, and admin panel for managing orders and menus.',
@@ -193,10 +219,42 @@ export const Home = () => {
       },
     },
     {
+      id: 'project-6',
+      ref: projectSix,
+      index: 6,
+      category: 'web',
+      title: 'AI Resume Analyzer',
+      description:
+        'An AI-powered web application that analyzes resumes, extracts content, and provides ATS-style job fit insights and recommendations.',
+      buttonText: 'View project',
+      buttonLink: '/projects/ai-resume-analyzer',
+      stack: [
+        'Java',
+        'Spring Boot',
+        'PostgreSQL',
+        'React',
+        'Vite',
+        'Tailwind',
+        'OpenAI / Gemini',
+        'Apache Tika',
+      ],
+      model: {
+        type: 'laptop',
+        alt: 'AI Resume Analyzer web application',
+        textures: [
+          {
+            srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
+            placeholder: sprTexturePlaceholder,
+          },
+        ],
+      },
+    },
+    {
       id: 'project-4',
       ref: projectfour,
       alternate: true,
       index: 4,
+      category: 'mobile',
       title: 'Student Marks Calculator',
       description:
         'A GTU marks calculator app built for students to quickly compute SPI, CPI, CGPA, and percentage with a clean and easy-to-use interface.',
@@ -222,6 +280,7 @@ export const Home = () => {
       id: 'project-5',
       ref: projectfive,
       index: 5,
+      category: 'mobile',
       title: 'Covid Soft Test',
       description:
         'A simple and responsive Android app providing real-time COVID-19 updates, safety guidelines, and nearby healthcare info. Built using Java, RESTful APIs, and SQL for reliable performance and accessibility.',
@@ -243,7 +302,60 @@ export const Home = () => {
         ],
       },
     },
+    {
+      id: 'project-7',
+      ref: projectSeven,
+      index: 7,
+      category: 'web',
+      title: 'Spark & Shine Tuition Classes Website',
+      description:
+        'A modern, responsive website for an education institute featuring clean layout, branding, and clear call-to-actions.',
+      buttonText: 'View project',
+      buttonLink: '/projects/spark-and-shine',
+      stack: ['React', 'Vite', 'Tailwind CSS', 'Responsive UI'],
+      model: {
+        type: 'laptop',
+        alt: 'Spark & Shine tuition classes website',
+        textures: [
+          {
+            srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
+            placeholder: sprTexturePlaceholder,
+          },
+        ],
+      },
+    },
+    {
+      id: 'project-8',
+      ref: projectEight,
+      index: 8,
+      category: 'web',
+      title: 'CELPIP Writing Practice Studio',
+      description:
+        'A focused practice platform for CELPIP Writing tasks, offering structured prompts and a guided writing experience.',
+      buttonText: 'View project',
+      buttonLink: '/projects/celpip-writing-studio',
+      stack: ['React', 'JavaScript', 'Writing Evaluation Logic', 'UI/UX'],
+      model: {
+        type: 'laptop',
+        alt: 'CELPIP writing practice studio',
+        textures: [
+          {
+            srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
+            placeholder: sprTexturePlaceholder,
+          },
+        ],
+      },
+    },
   ];
+
+  const categories = [
+    { id: 'all', label: 'ALL' },
+    { id: 'web', label: 'WEB' },
+    { id: 'mobile', label: 'APP' },
+  ];
+
+  const filteredProjects =
+    category === 'all' ? projects : projects.filter(project => project.category === category);
 
   return (
     <div className={styles.home}>
@@ -252,22 +364,43 @@ export const Home = () => {
         sectionRef={intro}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
-      {projects.map(project => (
-        <ProjectSummary
-          key={project.id}
-          id={project.id}
-          alternate={project.alternate}
-          sectionRef={project.ref}
-          visible={visibleSections.includes(project.ref.current)}
-          index={project.index}
-          title={project.title}
-          description={project.description}
-          buttonText={project.buttonText}
-          buttonLink={project.buttonLink}
-          model={project.model}
-          stack={project.stack}
-        />
-      ))}
+      <div className={styles.projectsHeader}>
+        <div className={styles.segmentedControl} role="tablist" aria-label="Project categories">
+          {categories.map(item => (
+            <button
+              key={item.id}
+              type="button"
+              role="tab"
+              aria-selected={category === item.id}
+              className={styles.segmentedButton}
+              data-active={category === item.id}
+              onClick={() => setCategory(item.id)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      {filteredProjects.length === 0 ? (
+        <div className={styles.emptyState}>No projects in this category yet.</div>
+      ) : (
+        filteredProjects.map(project => (
+          <ProjectSummary
+            key={project.id}
+            id={project.id}
+            alternate={project.index % 2 === 0}
+            sectionRef={project.ref}
+            visible={visibleSections.includes(project.ref.current)}
+            index={project.index}
+            title={project.title}
+            description={project.description}
+            buttonText={project.buttonText}
+            buttonLink={project.buttonLink}
+            model={project.model}
+            stack={project.stack}
+          />
+        ))
+      )}
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}

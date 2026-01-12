@@ -2,6 +2,7 @@
   position: absolute;
   width: 100vw;
   inset: 0;
+  pointer-events: none;
   opacity: 0;
   transition-property: opacity;
   transition-duration: 3s;

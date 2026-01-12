@@ -139,6 +139,14 @@
   }
 }
 
+.summary[data-alternate='true'] .model[data-device='laptop'] {
+  left: -14%;
+
+  @media (--mediaTablet) {
+    left: 0;
+  }
+}
+
 .loader {
   opacity: 0;
   transition: opacity 400ms ease 1000ms;
